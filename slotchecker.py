@@ -35,6 +35,7 @@ import pandas as pd
 import time
 import logging
 import os
+import sys
 
 # ---------- LOGOWANIE WSPÓLNE ----------
 
@@ -1615,4 +1616,23 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Tryb automatyczny: python slotchecker.py --auto
+    if len(sys.argv) > 1 and sys.argv[1] == "--auto":
+        logger.info("Tryb AUTOMATYCZNY: sprawdzam WSZYSTKIE usługi i WSZYSTKIE jednostki")
+
+        # brak filtra = wszystkie jednostki
+        unit_postal = None
+
+        # 1) Plan w sklepie
+        IkeaStorePlanningChecker(headless=True).run(unit_postal_filter=unit_postal)
+        # 2) Fin w sklepie
+        IkeaStoreFinalizationChecker(headless=True).run(unit_postal_filter=unit_postal)
+        # 3) Online (Plan / Fin) – RCMP
+        IkeaOnlineChecker(headless=True).run(unit_postal_filter=unit_postal)
+        # 4) PUK – Planowanie w domu klienta
+        IkeaPUKChecker(headless=True).run(unit_postal_filter=unit_postal)
+
+        logger.info("Tryb AUTOMATYCZNY zakończony")
+    else:
+        # Tryb interaktywny (lokalnie na Twoim komputerze)
+        main()
