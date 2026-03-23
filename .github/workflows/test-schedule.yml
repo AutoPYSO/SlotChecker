@@ -1,0 +1,14 @@
+    name: Ostateczny Test Harmonogramu
+
+    on:
+      schedule:
+        # Uruchamiaj co 5 minut
+        - cron: "*/5 * * * *"
+      workflow_dispatch:
+
+    jobs:
+      test-job:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Powiedz "Cześć" i pokaż datę
+            run: echo "Harmonogram działa, jest $(date)"
