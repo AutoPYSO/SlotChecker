@@ -1,9 +1,12 @@
-name: Uruchamiaj slotchecker 5 razy dziennie
+name: Uruchamiaj slotchecker raz dziennie
 
 on:
-    schedule:
-    # 8:00, 11:00, 14:00, 17:00, 20:00 czasu UTC (na razie przykładowo)
-    - cron: "*/5 * * * *"
+  # ręczne uruchamianie z przycisku w zakładce Actions
+  workflow_dispatch:
+
+  # automatyczne uruchamianie o 21:10 UTC każdego dnia
+  schedule:
+    - cron: "10 21 * * *"
 
 jobs:
   run-slotchecker:
