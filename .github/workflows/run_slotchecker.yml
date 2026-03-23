@@ -23,8 +23,8 @@ jobs:
         run: |
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Uruchom slotchecker
-        run: python slotchecker.py
+      - name: Uruchom slotchecker w trybie automatycznym
+        run: python slotchecker.py --auto
 
       - name: Zapisz wygenerowany CSV jako artifact
         uses: actions/upload-artifact@v4
