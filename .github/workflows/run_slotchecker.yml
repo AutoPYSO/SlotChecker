@@ -6,7 +6,7 @@
 
       # Automatyczne uruchamianie o 21:10 UTC każdego dnia
       schedule:
-        - cron: "5 8,11,14,17,20 * * *"
+        - cron: "30 7,10,13,16 * * *"
 
     jobs:
       run-slotchecker:
