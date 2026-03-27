@@ -4,9 +4,9 @@
       # Umożliwia ręczne uruchamianie z przycisku w zakładce Actions
       workflow_dispatch:
 
-      # Automatyczne uruchamianie o 21:10 UTC każdego dnia
+      # Automatyczne uruchamianie co 2h każdego dnia
       schedule:
-        - cron: "30 7,10,13,16 * * *"
+        - cron: "30 7/2 * * *"
 
     jobs:
       run-slotchecker:
