@@ -1,4 +1,4 @@
-name: Uruchamiaj slotchecker raz dziennie
+name: Uruchamiaj slotchecker co 2h (xx:30)
 
 on:
   # Umożliwia ręczne uruchamianie z przycisku w zakładce Actions
